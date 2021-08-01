@@ -85,6 +85,12 @@ app.get("/users/:id", (req, res) => {
     res.send({ selected_user });
 });
 
+// this will not work  because it need to become in top of the  :id route
+app.get('/users/name',(req,res)=>{
+    console.log("name called");
+    res.send("name")
+})
+
 // 404 page
 // Keep This in always as last route otherways if you add any route in below it will not work
 app.use((req, res) => {
