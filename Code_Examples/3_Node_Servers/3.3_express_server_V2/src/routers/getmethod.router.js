@@ -44,7 +44,7 @@ router.get("/users", (req, res) => {
             }
             res.send({ users: selectedUsers });
         } else {
-            res.send({ msg: "Invalid query values" });
+            res.status(400).send({ msg: "Invalid query values" });
         }
     } else {
         // there is no query, is  {}

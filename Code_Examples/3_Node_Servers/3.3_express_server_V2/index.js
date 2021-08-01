@@ -19,9 +19,16 @@ app.get("/", (req, res) => {
     res.send("hello from simple server :)");
 });
 
+// for post method
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 const getRouters=require('./src/routers/getmethod.router')
+const postRouters=require('./src/routers/postRouter.router')
 
 app.use('/getmethod',getRouters)
+
+app.use('/postmethod',postRouters)
 
 
 
