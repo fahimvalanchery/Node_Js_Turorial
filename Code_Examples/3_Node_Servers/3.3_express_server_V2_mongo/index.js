@@ -5,12 +5,14 @@
 const express = require("express");
 const path = require("path"); //node built in
 const { users } = require("./data");
+const mongoose = require('mongoose');
 
 
 
 // express app
 const app = express();
 const PORT = 8080;
+// added ejs engine
 app.set('view engine', 'ejs');
 /**
  * Get Method
@@ -49,6 +51,14 @@ app.get("/notwork", (req, res) => {
     //   always return that 404 page
     res.send("this route will not work");
 });
+
+// connected database
+mongoose.connect('mongodb://localhost:27017/nodejs_tutorial', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
+    console.log("connected to db");
+}).catch(err=>{
+    console.log(err);
+})
+
 
 // localhost is the default value for 2nd argument
 app.listen(PORT, () => {
