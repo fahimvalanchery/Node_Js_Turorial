@@ -1,0 +1,21 @@
+<html lang="en">
+
+<body>
+
+  <div class=" content">
+    <h2>Users</h2>
+
+    <% if (users.length > 0) { %>
+      <% users.forEach(user => { %>
+
+        <h3 class=""><%= user.name %></h3>
+
+      <% }) %>
+    <% } else { %>
+      <p>There are no users to display...</p>
+    <% } %>
+    
+  </div>
+
+</body>
+</html>

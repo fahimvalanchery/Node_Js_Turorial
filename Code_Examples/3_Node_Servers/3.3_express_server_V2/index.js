@@ -4,19 +4,24 @@
  */
 const express = require("express");
 const path = require("path"); //node built in
+const { users } = require("./data");
 
 
 
 // express app
 const app = express();
 const PORT = 8080;
-
+app.set('view engine', 'ejs');
 /**
  * Get Method
  */
 app.get("/", (req, res) => {
     // response with simple Text
     res.send("hello from simple server :)");
+});
+app.get("/users", (req, res) => {
+    // res with ejs file
+    res.render('users',{users:[],title:"MY Users"});
 });
 
 // for post method
